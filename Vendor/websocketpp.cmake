@@ -23,16 +23,16 @@ target_include_directories(
   INTERFACE
   "${SOURCE_DIR}"
 )
-target_link_libraries(
-  websocketpp
-  INTERFACE
-  asio
-)
-target_compile_definitions(
-  websocketpp
-  INTERFACE
-  ASIO_STANDALONE=1
-)
+
+find_package(Boost 1.79.0 REQUIRED)
+if(Boost_FOUND)
+  target_include_directories (
+    websocketpp 
+    INTERFACE 
+   ${Boost_INCLUDE_DIR}
+   )
+endif()
+
 if(MSVC)
   target_compile_options(
     websocketpp

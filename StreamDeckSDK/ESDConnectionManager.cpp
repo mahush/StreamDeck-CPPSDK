@@ -149,7 +149,7 @@ void ESDConnectionManager::Run() {
     mWebsocket.clear_error_channels(websocketpp::log::elevel::all);
 
     // Initialize ASIO
-    auto ctx = std::make_shared<asio::io_context>();
+    auto ctx = std::make_shared<boost::asio::io_context>();
     mWebsocket.init_asio(ctx.get());
     mAsioContext = ctx;
 
@@ -373,6 +373,6 @@ void ESDConnectionManager::SetGlobalSettings(const json& inSettings) {
     mConnectionHandle, jsonObject.dump(), websocketpp::frame::opcode::text, ec);
 }
 
-std::shared_ptr<asio::io_context> ESDConnectionManager::GetAsioContext() const {
+std::shared_ptr<boost::asio::io_context> ESDConnectionManager::GetAsioContext() const {
   return mAsioContext;
 }

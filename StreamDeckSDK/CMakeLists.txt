@@ -22,13 +22,17 @@ add_library(
   STATIC
   ${SOURCES}
 )
+
+find_package(Boost 1.79.0 REQUIRED system)
+include_directories (SYSTEM ${Boost_INCLUDE_DIR})
+
 target_compile_definitions(StreamDeckSDK PRIVATE JSON_USE_IMPLICIT_CONVERSIONS=0)
 target_link_libraries(
   StreamDeckSDK
   PUBLIC
-  asio
   json
   websocketpp
+  ${Boost_LIBRARIES}
 )
 
 # ghc::filesystem only supports UTF-8 locales, which is not common on Windows.

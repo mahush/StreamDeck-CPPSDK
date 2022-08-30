@@ -73,6 +73,4 @@ add_custom_target(
   "${CMAKE_INSTALL_FULL_INCLUDEDIR}/StreamDeckSDK/ESDBasePlugin.h"
   "${CMAKE_INSTALL_FULL_INCLUDEDIR}/nlohmann/json.hpp"
   "${CMAKE_INSTALL_FULL_INCLUDEDIR}/websocketpp/client.hpp"
-  "${CMAKE_INSTALL_FULL_INCLUDEDIR}/asio/version.hpp"
-  "${CMAKE_INSTALL_FULL_INCLUDEDIR}/asio.hpp"
 )
